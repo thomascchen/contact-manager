@@ -1,0 +1,22 @@
+<h1>Contacts</h1>
+
+<ul>
+  <% @contacts.each do |contact| %>
+    <li><a href="/contacts/<%= contact.id %>"><%= contact.name %> - <%= contact.phone_number %></a></li>
+  <% end %>
+
+  <p><a href="/?page=<%= params[:page].to_i - 1 %>">Previous Page</a></p>
+  <p><a href="/?page=<%= params[:page].to_i + 1 %>">Next Page</a></p>
+
+  <form action="/" method="get">
+    <label for="query">Search:</label>
+    <input type="text" id="query" name="first_name" placeholder="First name">
+    <input type="text" id="query" name="last_name" placeholder="Last name">
+    <input type="submit">
+  </form>
+
+  <p><a href="/new">Add a new entry</a></p>
+
+  <p><a href="/">Go Home</a></p>  
+
+</ul>
